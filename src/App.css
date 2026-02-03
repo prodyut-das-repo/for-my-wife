@@ -21,6 +21,38 @@
   animation: float-up linear infinite;
 }
 
+.floating-hearts span.heart-red {
+  text-shadow:
+    0 0 8px rgba(255, 40, 80, 0.95),
+    0 0 16px rgba(255, 40, 80, 0.8),
+    0 0 28px rgba(255, 40, 80, 0.7);
+  filter: drop-shadow(0 0 10px rgba(255, 40, 80, 0.7));
+}
+
+.floating-hearts span.heart-pink {
+  text-shadow:
+    0 0 8px rgba(255, 118, 178, 0.8),
+    0 0 16px rgba(255, 118, 178, 0.65),
+    0 0 28px rgba(255, 118, 178, 0.55);
+  filter: drop-shadow(0 0 10px rgba(255, 118, 178, 0.5));
+}
+
+.floating-hearts span.heart-purple {
+  text-shadow:
+    0 0 8px rgba(168, 85, 247, 0.8),
+    0 0 16px rgba(168, 85, 247, 0.65),
+    0 0 28px rgba(168, 85, 247, 0.55);
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+}
+
+.floating-hearts span.heart-blue {
+  text-shadow:
+    0 0 8px rgba(59, 130, 246, 0.8),
+    0 0 16px rgba(59, 130, 246, 0.65),
+    0 0 28px rgba(59, 130, 246, 0.55);
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
 @keyframes float-up {
   0% {
     transform: translateY(0) scale(0.8);
@@ -64,6 +96,11 @@
   font-size: clamp(2.2rem, 4vw, 3.4rem);
   line-height: 1.1;
   margin-bottom: 1rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .highlight {
@@ -121,15 +158,85 @@
 }
 
 .reason-card {
-  background: rgba(255, 243, 248, 0.8);
+  background: #f7b1c8;
   border-radius: 18px;
-  padding: 1rem 1.5rem;
+  padding: 2.9rem 2.1rem 1.7rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #6a2c46;
-  box-shadow: 0 12px 24px rgba(90, 26, 48, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  color: #3a0c1f;
+  box-shadow: 0 16px 28px rgba(140, 40, 80, 0.18);
+  animation: reason-reveal 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent),
+    linear-gradient(45deg, rgba(245, 140, 179, 0.9), rgba(255, 214, 232, 0.95));
+}
+
+.reason-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(135deg, #e86b9b, #f9c4da);
+  clip-path: polygon(0 0, 100% 0, 50% 70%);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.reason-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 60%,
+    rgba(255, 255, 255, 0.6)
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+@keyframes reason-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.confetti-burst {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.confetti-burst span {
+  position: absolute;
+  left: var(--origin-x);
+  top: var(--origin-y);
+  border-radius: 999px;
+  opacity: 0;
+  animation: confetti-burst 0.9s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.9) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(1.05) rotate(var(--r));
+  }
 }
 
 .hero-card {

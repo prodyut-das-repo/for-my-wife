@@ -85,7 +85,9 @@ function App() {
           </p>
           <div className="hero-actions">
             <button className="primary" onClick={handleReason}>
-              Click to see why I love you
+              {reason
+                ? 'Click again to see why I love you'
+                : 'Click to see why I love you'}
             </button>
           </div>
           {reason && <div className="reason-card">{reason}</div>}

@@ -9,6 +9,17 @@
   overflow: hidden;
 }
 
+.paper-title {
+  position: absolute;
+  top: 19px;
+  left: 65px;
+  right: 16px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.35rem;
+  color: #ff4f8b;
+  font-weight: 600;
+}
+
 .floating-hearts {
   position: fixed;
   inset: 0;
@@ -199,7 +210,7 @@
 
 .text {
   position: absolute;
-  top: 56px;
+  top: 68px;
   left: 65px;
   right: 16px;
   bottom: 14px;

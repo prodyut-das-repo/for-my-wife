@@ -181,6 +181,7 @@ function App() {
             <div className="reason-card">
               <div className="paper">
                 <div className="lines">
+                  <div className="paper-title">To my dear wife &lt;3</div>
                   <div className="text" spellCheck="false">
                     {reasonTyped}
                   </div>

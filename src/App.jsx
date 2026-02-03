@@ -6,6 +6,7 @@ function App() {
     'From the moment I met you, my life changed in ways I never imagined…'
   const [typed, setTyped] = useState('')
   const [reason, setReason] = useState('')
+  const [reasonTyped, setReasonTyped] = useState('')
   const [showConfetti, setShowConfetti] = useState(false)
   const [confettiKey, setConfettiKey] = useState(0)
   const confettiTimerRef = useRef(null)
@@ -100,6 +101,25 @@ function App() {
     return () => clearInterval(interval)
   }, [typingText])
 
+  useEffect(() => {
+    if (!reason) {
+      setReasonTyped('')
+      return
+    }
+
+    let index = 0
+    setReasonTyped('')
+    const interval = setInterval(() => {
+      index += 1
+      setReasonTyped(reason.slice(0, index))
+      if (index >= reason.length) {
+        clearInterval(interval)
+      }
+    }, 35)
+
+    return () => clearInterval(interval)
+  }, [reason])
+
   const handleReason = () => {
     const next = reasons[Math.floor(Math.random() * reasons.length)]
     setReason(next)
@@ -157,7 +177,20 @@ function App() {
                 : 'Click to see why I love you'}
             </button>
           </div>
-          {reason && <div className="reason-card">{reason}</div>}
+          {reason && (
+            <div className="reason-card">
+              <div className="paper">
+                <div className="lines">
+                  <div className="text" spellCheck="false">
+                    {reasonTyped}
+                  </div>
+                </div>
+                <div className="holes hole-top" aria-hidden="true" />
+                <div className="holes hole-middle" aria-hidden="true" />
+                <div className="holes hole-bottom" aria-hidden="true" />
+              </div>
+            </div>
+          )}
         </div>
         <div className="hero-card">
           <div className="typing-plain">

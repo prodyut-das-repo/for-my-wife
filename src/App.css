@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
+
 .page {
   min-height: 100vh;
   background: linear-gradient(180deg, #ffe7f2 0%, #ffd6e7 45%, #f8bdd7 100%);
@@ -158,46 +160,78 @@
 }
 
 .reason-card {
-  background: #f7b1c8;
-  border-radius: 18px;
-  padding: 2.9rem 2.1rem 1.7rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #3a0c1f;
-  box-shadow: 0 16px 28px rgba(140, 40, 80, 0.18);
-  animation: reason-reveal 0.5s ease-out;
   position: relative;
+  display: flex;
+  justify-content: center;
+  animation: reason-reveal 0.5s ease-out;
+  margin-top: 0.6rem;
+}
+
+.paper {
+  position: relative;
+  height: 260px;
+  width: min(520px, 100%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(120, 50, 80, 0.18);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent),
-    linear-gradient(45deg, rgba(245, 140, 179, 0.9), rgba(255, 214, 232, 0.95));
 }
 
-.reason-card::before {
+.paper::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  left: 52px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255, 0, 0, 0.35);
+}
+
+.lines {
+  margin-top: 36px;
+  height: calc(100% - 36px);
   width: 100%;
-  height: 60%;
-  background: linear-gradient(135deg, #e86b9b, #f9c4da);
-  clip-path: polygon(0 0, 100% 0, 50% 70%);
-  opacity: 0.85;
-  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    #fff 0px,
+    #fff 24px,
+    rgba(70, 130, 180, 0.6) 25px
+  );
 }
 
-.reason-card::after {
-  content: "";
+.text {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    transparent 60%,
-    rgba(255, 255, 255, 0.6)
-  );
-  opacity: 0.55;
-  pointer-events: none;
+  top: 56px;
+  left: 65px;
+  right: 16px;
+  bottom: 14px;
+  line-height: 25px;
+  font-family: "Indie Flower", cursive;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #3a2a33;
+  overflow: hidden;
+  outline: none;
+}
+
+.holes {
+  position: absolute;
+  left: 12px;
+  height: 22px;
+  width: 22px;
+  background: #fff3f8;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(100, 80, 90, 0.4);
+}
+
+.hole-top {
+  top: 14%;
+}
+
+.hole-middle {
+  top: 50%;
+}
+
+.hole-bottom {
+  bottom: 14%;
 }
 
 @keyframes reason-reveal {

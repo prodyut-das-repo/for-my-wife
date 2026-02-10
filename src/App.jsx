@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
+import loveBirds from './assets/love_birds2.png'
+import userPhoto from './assets/Gemini_Generated_Image_bzayclbzayclbzay.png'
 
 function App() {
   const typingText =
@@ -197,8 +199,8 @@ function App() {
           <div className="typing-plain">
             <p className="typing-text small">{typed}</p>
           </div>
-          <div className="photo-frame">
-            <div className="photo-placeholder">Add your photo here ✨</div>
+          <div className="photo-frame" style={{ overflow: 'hidden' }}>
+            <img className='user-photo' src={userPhoto} alt="Our special moment" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </header>
@@ -210,7 +212,16 @@ function App() {
             <span className="dot">📍</span>
             <div>
               <h4>First time we met</h4>
-              <p>The day my heart learned your name.</p>
+              <p>The day my heart learned your name, love at first eye sight <b>AGAAAAAIN ❤️</b></p>
+              <iframe
+                title="NJP Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6075.634960284654!2d88.43363341255963!3d26.692631469414295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e443d36086e611%3A0x731646c9cf2b77be!2sNJP%20Railway%20Sta%20Rd%2C%20Siliguri%2C%20West%20Bengal!5e1!3m2!1sen!2sin!4v1770722573749!5m2!1sen!2sin"
+                width="100%"
+                height="150"
+                style={{ border: 0, borderRadius: '8px', marginTop: '8px' }}
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
           <div className="timeline-item">
@@ -218,6 +229,7 @@ function App() {
             <div>
               <h4>First conversation</h4>
               <p>We talked for hours like we already knew each other.</p>
+              <img src={loveBirds} style={{ borderRadius: "8px", marginTop: "8px" }} alt="Two love birds talking with love" className="love-birds-img" />
             </div>
           </div>
           <div className="timeline-item">
@@ -225,6 +237,7 @@ function App() {
             <div>
               <h4>Big milestones</h4>
               <p>Every adventure that made us stronger together.</p>
+
             </div>
           </div>
           <div className="timeline-item">
